@@ -1,0 +1,41 @@
+{
+  "color": {
+    "bg": "#0B1020",
+    "surface": "#12192B",
+    "card": "#182136",
+    "textPrimary": "#F4F7FB",
+    "textSecondary": "#AAB4C5",
+    "brand": "#6D7CFF",
+    "brandHover": "#8390FF",
+    "success": "#2CCB8F",
+    "border": "#24304A"
+  },
+  "radius": {
+    "card": "20px",
+    "button": "14px",
+    "input": "14px",
+    "pill": "999px"
+  },
+  "typography": {
+    "h1": {
+      "size": "56px",
+      "weight": 700
+    },
+    "h2": {
+      "size": "36px",
+      "weight": 700
+    },
+    "h3": {
+      "size": "28px",
+      "weight": 600
+    },
+    "body": {
+      "size": "16px",
+      "weight": 400
+    },
+    "caption": {
+      "size": "14px",
+      "weight": 400
+    }
+  }
+}

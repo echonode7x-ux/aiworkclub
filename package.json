@@ -13,10 +13,14 @@
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
 	},
 	"dependencies": {
+		"@clerk/nextjs": "^7.0.7",
 		"@opennextjs/cloudflare": "^1.17.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^1.7.0",
 		"next": "16.1.5",
 		"react": "19.1.5",
-		"react-dom": "19.1.5"
+		"react-dom": "19.1.5",
+		"tailwind-merge": "^3.5.0"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
