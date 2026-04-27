@@ -6,8 +6,9 @@ export async function POST(request: Request) {
   try {
     const { email } = await request.json();
 
-    if (!email || !email.includes('@')) {
-      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      return NextResponse.json({ error: '请提供有效的邮箱地址' }, { status: 400 });
     }
 
     // WARNING: Cloudflare Pages uses the Edge Runtime, which does not have access to a local file system (no 'fs' module).

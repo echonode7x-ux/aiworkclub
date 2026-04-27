@@ -8,4 +8,25 @@ published_at: "2024-03-21"
 
 # Zapier & AI Automation
 
-Automate anything.
+Zapier connects over 5,000 apps. By injecting AI into your Zapier workflows, you move from simple "If This Then That" logic to cognitive automation.
+
+## Core Concept: The AI "Brain" Step
+
+In a traditional automation, a trigger leads directly to an action (e.g., New Email -> Send Slack message).
+In an AI automation, you add a middle step: **Trigger -> AI Processing -> Action**.
+
+## Example 1: Intelligent Customer Support Routing
+
+1. **Trigger**: New email received in Zendesk/Gmail.
+2. **AI Step (ChatGPT)**: `Analyze the sentiment and intent of this email. If it is a refund request, output "REFUND". If it is a technical issue, output "TECH". If it is an angry customer, output "URGENT".`
+3. **Paths (Zapier)**: 
+   - If `URGENT`, send an SMS alert to the founder.
+   - If `REFUND`, draft an apology email using AI and save as draft.
+   - If `TECH`, create a Jira ticket and assign to the dev team.
+
+## Example 2: Automatic Lead Enrichment
+
+1. **Trigger**: New calendar booking via Calendly.
+2. **Action**: Web scraper tool fetches the attendee's company website.
+3. **AI Step**: `Read this website content and provide a 2-sentence summary of what the company does, their likely pain points, and a custom ice-breaker question.`
+4. **Action**: Append this AI summary to the Google Calendar event description so you are perfectly prepped before the call.

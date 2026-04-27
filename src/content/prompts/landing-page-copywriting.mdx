@@ -1,57 +1,39 @@
 ---
-title: "SaaS Landing Page 文案 Prompt"
-description: "生成高转化率的 SaaS 落地页文案，包含 Hero 区域、功能特性、用户证言等模块。"
-category: "marketing"
-tags:
-  - copywriting
-  - landing page
-  - marketing
-level: "intermediate"
-author: "AIPlaybook"
-published_at: "2026-04-27"
-updated_at: "2026-04-27"
-reading_time: 3
-is_premium: false
-type: "prompt"
-prompt_category: "marketing"
-variables:
-  - product_name
-  - target_audience
-  - core_benefit
-  - price
+title: "Landing Page Copywriting Prompt"
+description: "A framework prompt to generate high-converting landing page copy"
+category: "prompts"
+prompt_category: "Marketing"
+author: "AIPlaybook Team"
+published_at: "2024-03-21"
 ---
 
-## 使用场景
+# Landing Page Copywriting Framework
 
-当你需要为一个新的 SaaS 产品或功能快速搭建落地页时。
+Creating a high-converting landing page requires a deep understanding of customer pain points and clear, concise messaging. Use this mega-prompt with Claude 3.5 Sonnet or GPT-4o to generate your first draft.
 
-## Prompt 正文
+## The Mega-Prompt
 
 ```text
-你是一个世界级的文案策划专家，精通 StoryBrand 框架和高转化落地页逻辑。
-请为我的产品 [产品名称] 编写一份 Landing Page 文案。
+Act as a world-class direct-response copywriter. I need you to write the copy for a new landing page for my product.
 
-产品名称：{{product_name}}
-目标受众：{{target_audience}}
-核心价值：{{core_benefit}}
-价格：{{price}}
+Here is the context:
+- Product Name: [Insert Name]
+- Target Audience: [Insert Audience]
+- Main Problem Solved: [Insert Problem]
+- Core Unique Mechanism: [How your product works differently]
+- Primary Call to Action (CTA): [e.g., Start 14-day free trial]
 
-请包含以下部分：
-1. Hero Section (标题、副标题、CTA 按钮文字)
-2. Problem (受众目前面临的 3 个核心痛点)
-3. Solution (产品如何解决这些问题)
-4. Features & Benefits (3-5 个核心功能及其带来的具体好处)
-5. FAQ (3 个最常见的问题及回答)
+Please use the PAS (Problem-Agitation-Solution) framework.
+
+Structure the output exactly like this:
+1. **Hero Section**: A bold, outcome-driven H1 headline (max 8 words). A descriptive H2 subheadline (max 20 words). The primary CTA text.
+2. **Social Proof Section**: Write a placeholder for a specific, realistic-sounding customer testimonial.
+3. **Problem Agitation**: 3 bullet points describing the pain of NOT using the product.
+4. **Features as Benefits**: 3 features, but write them entirely as benefits (What's in it for the user?).
+5. **Final CTA Section**: A compelling closing argument and a final CTA button text.
 ```
 
-## 变量说明
+## Tips for Success
 
-- **product_name**: 你的产品或公司名称。
-- **target_audience**: 你的目标用户是谁。
-- **core_benefit**: 你的产品能带来的最大好处是什么。
-
-## 使用步骤
-
-1. 替换上述变量。
-2. 将 Prompt 发送给 ChatGPT 或 Claude。
-3. 根据输出结果进行微调。
+- **Be specific in the context**: The more detailed your inputs are in the brackets `[]`, the better the output will be.
+- **Iterate**: Don't accept the first output. Reply with, "Make the hero headline punchier and more urgent," or "Focus more on the time-saving aspect."

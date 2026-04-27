@@ -1,50 +1,33 @@
 ---
-title: "从网页收集到 Notion 数据库的 AI 自动化流程"
-description: "使用 Make + OpenAI + Notion 自动提取网页核心信息并分类入库。"
-category: "automation"
-tags:
-  - Make
-  - Notion
-  - OpenAI
-  - automation
-level: "intermediate"
-author: "AIPlaybook"
-published_at: "2026-04-27"
-updated_at: "2026-04-27"
-reading_time: 6
-is_premium: false
-type: "workflow"
-tools:
-  - Make.com
-  - OpenAI API
-  - Notion
+title: "Notion AI Automation"
+description: "How to use Notion AI to automate your task management and notes"
+category: "workflows"
+author: "AIPlaybook Team"
+published_at: "2024-03-21"
 ---
 
-## 1. 业务痛点
+# Automate Your Life with Notion AI
 
-每天阅读大量网页，手动剪取到 Notion 太慢，且无法自动分类和提取关键词。
+Notion AI isn't just a writing assistant; it can fundamentally change how you organize data. Here is a step-by-step workflow to automate your daily summaries and meeting notes.
 
-## 2. 解决方案架构
+## 1. Automated Meeting Summaries
 
-1. **Trigger**: Chrome Extension (Save to Notion) 或 Webhook。
-2. **Process**: 使用 OpenAI 提取网页正文中的摘要、关键词、分类。
-3. **Action**: 将结构化数据写入 Notion 数据库。
+Instead of manually typing out next steps after a meeting:
+1. Paste your raw meeting transcript into a Notion page.
+2. Add a **Custom AI Block**.
+3. Use the prompt: `Extract all action items, assignees, and deadlines from this transcript. Format as a markdown checklist.`
 
-## 3. 详细步骤
+## 2. Database Autofill
 
-### 第一步：设置 Make.com 场景
+If you have a CRM or a Reading List in Notion, you can use AI to automatically fill in properties.
+- **Example**: Create a text column called "Summary". Set it as an AI Autofill column.
+- Provide instructions: `Read the content of this page and write a 2-sentence TL;DR summary.`
+- Notion will automatically run this prompt every time you add a new page.
 
-创建一个新的 Scenario，添加 Webhook。
+## 3. Weekly Review Generation
 
-### 第二步：配置 OpenAI 模块
-
-使用 GPT-4o-mini，输入网页正文，提示词如下：
-`请提取以下文本的核心摘要（3句话以内）、5个关键词和最适合的分类（AI, Marketing, Business, Tech）。`
-
-### 第三步：连接 Notion
-
-选择对应的数据库，将 OpenAI 的输出映射到 Notion 的属性字段。
-
-## 4. 进阶建议
-
-可以加入 Slack 通知，当有高价值内容入库时自动提醒团队。
+Create a template for your Weekly Review.
+Add an AI block that reads your daily journal entries for the week and answers:
+- What were the biggest wins?
+- What took up the most time?
+- What should be improved next week?
