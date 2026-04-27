@@ -8,6 +8,7 @@ export default async function TutorialPage({ params }: { params: { slug: string 
 
   if (!page) notFound();
 
+  const data = page.data as any;
   const MDX = page.data.body;
 
   return (
@@ -17,19 +18,19 @@ export default async function TutorialPage({ params }: { params: { slug: string 
           <BookOpen className="h-4 w-4" />
           <span>Tutorial</span>
           <span className="text-muted-foreground">•</span>
-          <span>{page.data.category}</span>
+          <span>{data.category}</span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">{page.data.title}</h1>
-        <p className="text-xl text-muted-foreground mb-8">{page.data.description}</p>
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">{data.title}</h1>
+        <p className="text-xl text-muted-foreground mb-8">{data.description}</p>
         
         <div className="flex flex-wrap gap-6 text-sm text-muted-foreground border-y py-6">
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
-            <span>{formatDate(page.data.updated_at || "")}</span>
+            <span>{formatDate(data.updated_at || "")}</span>
           </div>
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4" />
-            <span>{page.data.reading_time} min read</span>
+            <span>{data.reading_time} min read</span>
           </div>
         </div>
       </header>

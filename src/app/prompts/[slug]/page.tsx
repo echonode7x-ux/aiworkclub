@@ -7,22 +7,23 @@ export default async function PromptPage({ params }: { params: { slug: string } 
 
   if (!page) notFound();
 
+  const data = page.data as any;
   const MDX = page.data.body;
 
   return (
     <article className="container mx-auto px-4 py-12 max-w-4xl">
       <header className="mb-12">
         <div className="flex items-center gap-2 mb-4 text-sm font-medium text-primary uppercase tracking-widest">
-          <span>{page.data.category}</span>
+          <span>{data.category}</span>
           <span className="text-muted-foreground">•</span>
-          <span>{page.data.level}</span>
+          <span>{data.level}</span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">{page.data.title}</h1>
-        <p className="text-xl text-muted-foreground mb-8">{page.data.description}</p>
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">{data.title}</h1>
+        <p className="text-xl text-muted-foreground mb-8">{data.description}</p>
         
-        {page.data.variables && page.data.variables.length > 0 && (
+        {data.variables && page.data.variables.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-8">
-            {page.data.variables.map((v) => (
+            {data.variables.map((v) => (
               <span key={v} className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-mono">
                 {v}
               </span>

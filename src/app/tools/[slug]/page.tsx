@@ -8,6 +8,7 @@ export default async function ToolPage({ params }: { params: { slug: string } })
 
   if (!page) notFound();
 
+  const data = page.data as any;
   const MDX = page.data.body;
 
   return (
@@ -15,21 +16,21 @@ export default async function ToolPage({ params }: { params: { slug: string } })
       <header className="mb-12 flex flex-col md:flex-row gap-8 items-start justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-4 text-sm font-medium text-primary uppercase tracking-widest">
-            <span>{page.data.category}</span>
-            {page.data.pricing_type && (
+            <span>{data.category}</span>
+            {data.pricing_type && (
                <>
                  <span className="text-muted-foreground">•</span>
-                 <span>{page.data.pricing_type}</span>
+                 <span>{data.pricing_type}</span>
                </>
             )}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{page.data.title}</h1>
-          <p className="text-xl text-muted-foreground mb-8">{page.data.description}</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{data.title}</h1>
+          <p className="text-xl text-muted-foreground mb-8">{data.description}</p>
           
           <div className="flex gap-4">
-             {page.data.website && (
+             {data.website && (
                <a 
-                href={page.data.website} 
+                href={data.website} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:opacity-90 transition-opacity"
@@ -48,7 +49,7 @@ export default async function ToolPage({ params }: { params: { slug: string } })
       </div>
 
       <footer className="mt-12 pt-8 border-t text-sm text-muted-foreground">
-        Last updated: {formatDate(page.data.updated_at || "")}
+        Last updated: {formatDate(data.updated_at || "")}
       </footer>
     </article>
   );
