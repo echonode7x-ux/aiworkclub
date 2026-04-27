@@ -1,0 +1,8 @@
+name = "aiplaybook"
+compatibility_date = "2024-04-01"
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aiplaybook-db"
+database_id = "e55faf09-91e7-4dc9-aaf2-9351b73967ed"

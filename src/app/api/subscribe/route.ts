@@ -11,15 +11,32 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: '请提供有效的邮箱地址' }, { status: 400 });
     }
 
-    // WARNING: Cloudflare Pages uses the Edge Runtime, which does not have access to a local file system (no 'fs' module).
-    // Writing to a local JSON file is physically impossible in this serverless environment.
-    // For this MVP, we are logging the email to the server console to simulate a successful subscription.
-    // You will need to connect a database (like Cloudflare D1, KV, Supabase, or Firebase) later.
-    console.log(`[New Subscriber Collected]: ${email}`);
+    // Access the Cloudflare D1 database binding
+    // Next.js App Router on Cloudflare exposes bindings globally in process.env
+    // or via context. For compatibility, we use process.env.DB and cast it to any.
+    const db = (process.env as any).DB;
+    
+    if (!db) {
+      console.warn('DB binding not found! Simulating success for local testing.', email);
+      return NextResponse.json({ success: true, message: 'Subscribed successfully (Local Mock)!' });
+    }
 
-    return NextResponse.json({ success: true, message: 'Subscribed successfully!' });
-  } catch (error) {
+    // Check if email already exists
+    const existing = await db.prepare('SELECT id FROM Subscribers WHERE email = ?').bind(email).first();
+    if (existing) {
+      return NextResponse.json({ error: '该邮箱已经订阅过啦' }, { status: 400 });
+    }
+
+    // Insert new email
+    await db.prepare('INSERT INTO Subscribers (email) VALUES (?)').bind(email).run();
+
+    return NextResponse.json({ success: true, message: '订阅成功！欢迎加入。' });
+  } catch (error: any) {
     console.error('Subscription error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    // Handle unique constraint error specifically if needed (e.g. SQLite error 19)
+    if (error.message && error.message.includes('UNIQUE constraint failed')) {
+      return NextResponse.json({ error: '该邮箱已经订阅过啦' }, { status: 400 });
+    }
+    return NextResponse.json({ error: '服务器内部错误，请稍后再试' }, { status: 500 });
   }
 }
