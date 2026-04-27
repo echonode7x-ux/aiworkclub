@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
-const dataFilePath = path.join(process.cwd(), 'data', 'subscribers.json');
+export const runtime = 'edge';
 
 export async function POST(request: Request) {
   try {
@@ -12,32 +10,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
 
-    // Ensure directory exists
-    const dir = path.dirname(dataFilePath);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
-    // Read existing subscribers
-    let subscribers = [];
-    if (fs.existsSync(dataFilePath)) {
-      const fileData = fs.readFileSync(dataFilePath, 'utf8');
-      subscribers = JSON.parse(fileData || '[]');
-    }
-
-    // Check for duplicates
-    if (subscribers.some((s: any) => s.email === email)) {
-      return NextResponse.json({ error: 'Email already subscribed' }, { status: 400 });
-    }
-
-    // Add new subscriber
-    subscribers.push({
-      email,
-      subscribedAt: new Date().toISOString()
-    });
-
-    // Save to file
-    fs.writeFileSync(dataFilePath, JSON.stringify(subscribers, null, 2), 'utf8');
+    // WARNING: Cloudflare Pages uses the Edge Runtime, which does not have access to a local file system (no 'fs' module).
+    // Writing to a local JSON file is physically impossible in this serverless environment.
+    // For this MVP, we are logging the email to the server console to simulate a successful subscription.
+    // You will need to connect a database (like Cloudflare D1, KV, Supabase, or Firebase) later.
+    console.log(`[New Subscriber Collected]: ${email}`);
 
     return NextResponse.json({ success: true, message: 'Subscribed successfully!' });
   } catch (error) {
