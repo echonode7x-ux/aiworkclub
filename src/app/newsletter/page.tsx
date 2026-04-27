@@ -19,7 +19,12 @@ export default function NewsletterPage() {
         body: JSON.stringify({ email }),
       });
 
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch (err) {
+        throw new Error('Invalid response from server');
+      }
 
       if (res.ok) {
         setStatus("success");
@@ -27,11 +32,11 @@ export default function NewsletterPage() {
         setEmail("");
       } else {
         setStatus("error");
-        setMessage(data.error || "Something went wrong.");
+        setMessage(data?.error || "Something went wrong.");
       }
     } catch (error) {
       setStatus("error");
-      setMessage("Network error. Please try again later.");
+      setMessage("服务器响应异常，请稍后再试或检查配置。");
     }
   };
 

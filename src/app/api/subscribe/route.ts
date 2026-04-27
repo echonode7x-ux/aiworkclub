@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
 export const runtime = 'edge';
 
@@ -11,10 +12,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: '请提供有效的邮箱地址' }, { status: 400 });
     }
 
-    // Access the Cloudflare D1 database binding
-    // Next.js App Router on Cloudflare exposes bindings globally in process.env
-    // or via context. For compatibility, we use process.env.DB and cast it to any.
-    const db = (process.env as any).DB;
+    // Access the Cloudflare D1 database binding safely using next-on-pages
+    let db;
+    try {
+      db = getRequestContext().env.DB as any;
+    } catch (e) {
+      console.warn('getRequestContext() failed, falling back to process.env');
+      db = (process.env as any).DB;
+    }
     
     if (!db) {
       console.warn('DB binding not found! Simulating success for local testing.', email);
