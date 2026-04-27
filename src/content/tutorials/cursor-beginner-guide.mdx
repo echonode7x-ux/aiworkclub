@@ -1,42 +1,37 @@
 ---
-title: "Cursor 入门：AI 时代的代码编辑器"
-description: "从安装、配置到第一个 AI 辅助生成的项目，带你快速上手 Cursor。"
-category: "coding"
-tags:
-  - Cursor
-  - tutorial
-  - beginner
-level: "beginner"
-author: "AIPlaybook"
-published_at: "2026-04-27"
-updated_at: "2026-04-27"
-reading_time: 8
-is_premium: false
-type: "tutorial"
+title: "Cursor Beginner's Guide"
+description: "Everything you need to know to get started with Cursor"
+category: "tutorials"
+author: "AIPlaybook Team"
+published_at: "2024-03-22"
+video_url: "https://youtube.com/watch?v=example"
+featured: true
 ---
 
-## 1. 什么是 Cursor?
+# Getting Started with Cursor
 
-Cursor 是一个分叉自 VS Code 的代码编辑器，它将 AI 能力（主要是 Claude 3.5 Sonnet 和 GPT-4o）深度集成到了编辑流程中。
+Cursor is a fork of VS Code, which means if you know how to use VS Code, you already know how to use Cursor. All your extensions, keybindings, and themes will migrate over automatically with one click.
 
-## 2. 安装与初始配置
+## Step 1: Installation
 
-1. 访问 [cursor.com](https://cursor.com) 下载并安装。
-2. 登录账号。
-3. 导入 VS Code 配置（如果你以前用 VS Code）。
+1. Go to [Cursor.sh](https://cursor.sh) and download the installer.
+2. During setup, choose "Import from VS Code".
+3. Log in to create your free account.
 
-## 3. 核心功能操作
+## Step 2: The Command K (Cmd+K) Magic
 
-### Command + K: 行内编辑
-选中代码，按下 `Cmd + K`，输入你的修改指令。
+`Cmd+K` is your inline generation tool. 
+- Highlight a block of code and press `Cmd+K` to refactor it.
+- Press `Cmd+K` on an empty line and ask it to write a new function.
+- Example: Type "Create a React component for a newsletter signup form with Tailwind CSS" and watch it type.
 
-### Command + L: 聊天侧边栏
-询问关于代码库的任何问题。
+## Step 3: The Chat (Cmd+L)
 
-### Composer (Cmd + I)
-进行跨文件的代码生成和重构。
+The right sidebar houses the Chat. 
+By typing `@`, you can mention specific files, folders, or even official documentation (like `@Next.js` or `@Tailwind`).
+- **Use Case**: Ask "Where is the authentication logic handled in this project?"
+- **Use Case**: "Explain what `@utils.ts` does line by line."
 
-## 4. 最佳实践
+## Step 4: Codebase Context
 
-- **提供上下文**: 善用 `@Files` 和 `@Codebase`。
-- **小步迭代**: 不要一次性让 AI 写太复杂的逻辑，分步执行效果更好。
+When you use the Chat, press `Enter`. If you press `Option+Enter` (or `Alt+Enter`), Cursor will scan your *entire codebase* to find the answer. This is incredibly powerful for large, legacy projects.

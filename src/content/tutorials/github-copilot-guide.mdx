@@ -1,11 +1,37 @@
 ---
-title: "GitHub Copilot Guide"
-description: "Master GitHub Copilot for faster coding"
+title: "GitHub Copilot Advanced Guide"
+description: "Move beyond autocomplete and unlock Copilot's full potential"
 category: "tutorials"
 author: "AIPlaybook Team"
-published_at: "2024-03-21"
+published_at: "2024-03-22"
+video_url: "https://youtube.com/watch?v=example"
 ---
 
-# GitHub Copilot Guide
+# Advanced GitHub Copilot
 
-Code faster.
+Most developers use GitHub Copilot simply as a glorified autocomplete. But with the introduction of Copilot Chat and advanced context gathering, it is much more.
+
+## Context is King
+
+Copilot looks at your open tabs. If you want Copilot to write a test for `utils.js`, you must have `utils.js` open in an adjacent tab. 
+**Pro Tip**: Always keep the files relevant to your current task open in your editor, and close the ones that aren't.
+
+## Using Comments to Drive Architecture
+
+Don't just write code. Write out the logic in plain English comments first.
+
+```javascript
+// 1. Fetch user data from the /api/users endpoint
+// 2. Filter out users who are inactive
+// 3. Sort the remaining users alphabetically
+// 4. Return the top 10 users
+```
+
+Press enter after writing these comments, and Copilot will generate the exact code needed, step-by-step.
+
+## Copilot Chat Commands
+
+Use slash commands in the Copilot Chat panel to speed up your workflow:
+- `/explain`: Explain how the highlighted code works.
+- `/fix`: Propose a fix for the bugs in the highlighted code.
+- `/tests`: Generate unit tests for the selected code block.

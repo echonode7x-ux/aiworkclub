@@ -1,37 +1,30 @@
 ---
-title: "一人公司如何用 AI 做客服自动化"
-description: "通过 Dify + WeChat 机器人，实现 24/7 自动回复客户咨询，减少 90% 手动工作量。"
-category: "business"
-tags:
-  - Dify
-  - WeChat
-  - Customer Service
-level: "advanced"
-author: "AIPlaybook"
-published_at: "2026-04-27"
-updated_at: "2026-04-27"
-reading_time: 10
-is_premium: false
-type: "case"
+title: "Solo Creator Automation Workflow"
+description: "How to run a 6-figure newsletter without employees"
+category: "cases"
+author: "AIPlaybook Team"
+published_at: "2024-03-22"
+reading_time: 4
 ---
 
-## 案例背景
+# The One-Person Media Empire
 
-某独立开发者运营一个工具类产品，每天收到大量重复的基础咨询，严重占据开发时间。
+The creator economy is booming, but burnout is the number one reason creators quit. This case study breaks down how a solo creator running a popular tech newsletter automates 70% of their business.
 
-## 方案选型
+## The Workflow Stack
 
-- **Dify**: 作为 AI Agent 的后端引擎。
-- **Claude 3.5 Sonnet**: 提供高智商的对话回复。
-- **Gewechat**: 用于接入微信个人号。
+1. **Content Curation (Feedly + AI)**
+   The creator reads 50+ blogs. Instead of reading them manually, an AI agent summarizes the top 10 most relevant articles daily and drops them into a Notion database.
 
-## 实施效果
+2. **Drafting (Claude 3.5 Sonnet)**
+   The creator writes the bullet points and original thoughts. Claude 3.5 Sonnet expands these into full paragraphs while matching the creator's unique tone of voice.
 
-- **响应速度**: 从平均 2 小时缩短至 5 秒。
-- **解决率**: 70% 的常见问题由 AI 直接解决。
-- **用户满意度**: 显著提升，因为得到了即时回复。
+3. **Sponsorship Management (Make.com)**
+   When a sponsor books a slot via a Typeform:
+   - Make.com automatically creates a Stripe invoice.
+   - A Google Drive folder is created for their assets.
+   - An automated email is sent to the sponsor requesting their copy and logo.
 
-## 关键代码/逻辑
+## Result
 
-在 Dify 中建立知识库，导入产品文档和 FAQ 列表。
-通过 API 连接到微信中间层。
+The creator saves over 20 hours a week on administrative tasks and first-draft writing, allowing them to focus entirely on strategy, networking, and deep-dive research.

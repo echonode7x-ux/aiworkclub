@@ -1,73 +1,33 @@
 ---
-title: "用 AI 做竞品研究的完整工作流"
-description: "从信息收集、竞品拆解到输出分析报告的完整 AI 工作流。"
-category: "research"
-tags:
-  - AI workflow
-  - competitor research
-  - business
-level: "intermediate"
-author: "AIPlaybook"
-published_at: "2026-04-27"
-updated_at: "2026-04-27"
-reading_time: 8
-is_premium: false
-featured: true
-type: "playbook"
-use_case: "market-research"
-tools:
-  - ChatGPT
-  - Perplexity
-  - Google Sheets
-output:
-  - competitor matrix
-  - research summary
-  - action plan
+title: "AI Competitor Research Playbook"
+description: "Map your market in minutes, not days"
+category: "playbooks"
+author: "AIPlaybook Team"
+published_at: "2024-03-22"
+level: "beginner"
 ---
 
-## 1. 适用场景
+# AI Competitor Research Playbook
 
-当你需要快速了解一个新赛道，或者对现有竞品进行深度拆解时。
+Market research used to take weeks of downloading whitepapers, reading pricing pages, and building massive spreadsheets. Now, you can map your entire competitive landscape in under 30 minutes.
 
-## 2. 你将得到什么
+## Step 1: Identify the Landscape (Perplexity AI)
 
-- 一份结构化的竞品分析矩阵
-- 竞品核心卖点与痛点总结
-- 差异化竞争策略建议
+Start with a broad search in Perplexity AI.
 
-## 3. 所需工具
+**Prompt:**
+> "I am building a [description of your product]. Identify my top 5 direct competitors and 3 indirect competitors. Provide a 1-sentence summary of each."
 
-- **Perplexity**: 用于实时信息检索
-- **ChatGPT / Claude**: 用于深度逻辑分析
-- **Google Sheets**: 用于整理数据
+## Step 2: Feature Matrix (ChatGPT)
 
-## 4. 执行步骤
+Take the list of competitors and feed it to ChatGPT to build a comparison matrix.
 
-### 第一步：基础信息搜集 (Perplexity)
+**Prompt:**
+> "Create a feature comparison table for [Competitor A], [Competitor B], and [My Product]. Focus on pricing, target audience, core features, and biggest weaknesses based on public reviews. Output in Markdown format."
 
-使用以下 Prompt 在 Perplexity 中搜索：
-`分析 [竞品名称] 的核心业务模式、定价策略和主要用户评价。`
+## Step 3: Analyze Reviews for Weaknesses
 
-### 第二步：核心痛点挖掘
+Find G2 or Capterra review pages for your top competitor. Save the page as a PDF or copy the text of 1-star and 2-star reviews.
 
-### 第三步：生成对比报告
-
-## 5. Prompt 模板
-
-```markdown
-你是一个资深商业分析师。请基于以下搜集到的竞品信息，分析其相对于 [我的产品] 的优势和劣势：
-[插入搜集到的信息]
-```
-
-## 6. 输出示例
-
-(此处可展示分析报告的截图或部分文本)
-
-## 7. 常见问题
-
-**Q: 信息过时怎么办？**
-A: 使用带联网功能的 AI 工具如 Perplexity 或 GPT-4o。
-
-## 8. 下一步建议
-
-基于此分析，调整你的 Landing Page 文案。
+**Prompt (Claude 3):**
+> "Analyze these negative reviews for [Competitor]. What is the most common complaint? How can I position my product to solve this specific pain point?"
